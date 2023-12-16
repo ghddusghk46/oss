@@ -34,3 +34,46 @@ git 명령어 기초
  - $git init.
  - $git init basic: 현재 폴더 하부에 폴더 basic을 생성하고 git repository로 만들기 위해서 사용
 $cd basic: 하부에 폴더 .git 확인
+
+#2-3 비주얼스튜디오코드와 리눅스 명령
+
+폴더 관련 명령
+- $pwd: print working directory
+- $cd: change directory
+- $mkdir dname: make directory
+- $ls: flie or folder list (-l: 파일의 상세정보, -a: 숨김 파일 표시, -al: 두 개 조합)
+
+파일 관련 명령: 생성
+- $touch fname: 빈 파일 fname 생성
+
+표준 출력으로 결과 표시 
+- $echo git bash
+- $echo 'print()': 이후 문자열을 컴퓨터 터미널에 출력, 단순한 문자열은 가능하나 괄호 등이 있는 경우 작은 또는 큰 따옴표 사용
+
+파일 관련 명령: 내용 보이기, 복사, 이름 바꾸기
+- $cat fname: 파일 내용 보이기
+- $cd a b: 파일 a를 b로 복사
+- $mv f1 f2: 파일 f1을 f2로 이름 수정
+
+파일 및 폴더 삭제
+- $rm fname: 파일 fname 삭제
+- $rm -rf dname: 하부에 서브폴더와 파일이 있어도 폴더 삭제 (-f: 강제로 파일이나 디렉토리 삭제, -f: 디렉토리 내부의 모든 내용 삭제)
+
+명령어 ls 옵션
+- -l: 파일의 상세정보
+- -a: 숨김 파일 표시
+- -t: 파일들을 생성 시간이 제일 최신 것인 것부터 표시
+- -rt: 생성 시간이 제일 오래된 것부터 표시
+- -f: 마지막 유형에 나타내는 파일명을 끝에 표사 (/: 디렉터리, *: 실행파일 @: 링크...)
+
+명령어 cat 옵션
+- file1: file1의 내용 출력
+- file1 file2: file1 file2의 내용 출력
+- file1 file2 | more: file1 file2의 내용을 페이지별로 출력
+- file1 file2 | head: file1 file2의 내용을 처음부터 10번째 줄까지만 출력
+- file1 file2 | tail: file1 file2의 내용을 끝에서부터 10번째 줄까지만 출력
+
+redirection 명령어 연산
+- >: 기존에 있는 파일 내용을 지우고 저장
+- >>: 기존 파일 내용 뒤에 덧붙여서 저장 
+- <: 파일의 데이터를 명령에 입력
