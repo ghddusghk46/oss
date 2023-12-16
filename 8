@@ -1,0 +1,29 @@
+# 8-1 다양한 브랜치 병합
+
+병합: 두 개의 브랜치를 하나로 모으는 과정
+fast-forward 병합 조건: 현재 브랜치 master가 병합할 대상 커밋의 직접적인 뿌리가 되는 경우 -> 두 브랜치가 일렬 상태
+$git merge bugfix
+3-way: 두 분기가 갈라진 상태, 두 브랜치의 조상이 같은 경우
+새로운 커밋 E 생성
+
+non fast-forward 병합
+$git merge --no--ff{병합할 브랜치명}: 무조건 3-way 병합
+병합 실행 시에 fast-forward 병합이 가능한 경우라도 3-way 병합 수행
+$git merge {병합할 브랜치명}: 보통의 병합, 융통성 있는 병합
+$git merge --ff-only {병합할 브랜치명}: 상태가 fast-forward인 일렬 상태에서만 병합 진행
+$git merge --squash {병합할 브랜치명}: 현재 브랜치에 병합 대상과의 합치는 커밋을 하나 생성해 병합
+$git merge --squash hotfix: 커밋 이력과 병합되는 브랜치 이력도 남기지 않음
+
+# 8-3 병합 충돌과 해결
+auto-mergig basic.py
+conflict (content): merge conflict in basic ..., (main/MERGING) -> 충돌 발생 의미
+
+3-way 상태에서 두 브랜치의 동일 조상인 커밋 1을 기준
+충돌의 기준: 파일 충돌 없음 -> 수정되지 않거나 한쪽 브랜치에서만 수정, 파일 충돌 발생 -> 두 브랜치 모두에서 변경 사항이 달리 발생한 파일
+충돌 해결: 해당 파일의 충돌을 먼저 해결 -> 직접 파일 내용 수정 후 저장
+충돌 발생 코드 표시: <<<<<HEAD -> 3개의 표시로 구분, ========= -> 현재 브랜치 HEAD의 수정 내용, >>>>>>>>>> feat/lsit -> 병합되는 브랜치의 feat/list 수정 내용
+
+$git merge --abort: 병합 취소
+$git merge feat/list: 다시 병합
+$git commit -am 'Resolve conflict, main': 추가, 커밋 다시
+3-way 병합 수행: 파일 f를 두 브랜치에서 동시에 수정
