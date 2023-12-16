@@ -1,0 +1,48 @@
+# 7-1 오픈소스 소프트웨어
+
+oss: open source softwre 오픈소스 
+누구나 특별한 제한 없이 그 코드를 보고 사용할 수 있는 오픈소스 라이선스를 만족하는 sw
+open source initiative(osi): 공개 소스 정의 의 관리 및 촉진을 담당하는 비영리 조합
+소프트웨어의 소스코드를 자유롭게 일고, 수정 및 재배포가 가능
+free software 자유 소스 소프트웨어: 리처드 스톨먼, 자유 소프트웨어 재단 설립
+gnu 프로젝트와 관련된 소프트웨어에서 자유를 중시, copyreft
+
+오픈 소스 지원 관리 서버: 소스코드를 통해 여러 개발자가 협업하고 공유하며 이를 지원하는 방안을 마련
+협업 방식: 서로 간에 소스코드를 사용, 대규모 협업의 기본 원칙으로 운용
+
+장점: 소스코드 공개, 커스터마이징과 혁신 지원
+단점: 공개의 의무, 품질보증 및 유지보수, 보안 등의 어려움
+
+lamp: 대부분의 웹을 지원하는 서비스 스택 모델 (linuxk apache, mysql, php)
+
+오픈소스 소프트웨어 라이선스 종류: gnu, mit license, apache, bsd, mysql, suse, ubuntu
+
+gpl: 자유소프트웨어재단에서 만든 라이선스 (리눅스 커널, git, 마리아db, 워드프레스, 파이어폭스 등)
+agpl: gpl을 기반으로 만든 라이선스 (몽고 db 등)
+lgpl: 보다 완화된 gpl 라이선스 (파이어폭스 등)
+apache license: 소스 코드 공개에 대한 의무사항은 라이센스에 포함되어 있지 않음 (안드로이드, 하둡 등)
+mit license: mit에서 학생들을 지원하기 위해서 만든 라이선스 (부트스트랩, angular, backbone.js, jquery)
+
+# 7-2 임시저장 stash
+깃 4영역: 깃 3영역 + stash 영역
+깃 영역의 가장 단순한 상태: nothing to commit, working tree is clean
+
+git stash: 따로 안전한 곳에 저장했다가 다시 가져올 수 있는 기능 (작업 디렉토리 내용과 스테이지 내용)
+가장 최근의 내용이 가장 위에 저장됨
+
+$git stash, git stash -m 'message'
+$git stash save, git stash save 'message'
+---keep-index, -k: 스테이징 영역 x, 작업 폴더 o
+---include-untracked, -u: untracked 파일 포함 저장
+$git stash apply: 기본으로 작업 디렉토리 내용만 다시 복사해 활용
+$git stash apply --index: 스테이징 영역도 함께 복사하기 위해서 옵션 사용
+---patch, -p: 변경된 모든 사항들을 저장하는 것이 아니며, 대화형 프롬포트를 통해 자신이 stash 에 저장할 것과 저장하지 않을 것 지정 가능
+$git stash list: 목록 보기 // stash${0} -> 순서 + 가장 최근 것 0번
+$git stash show: 해당 stash 항복이 생성되었을 때의 커밋 자료와 최신 stash 항목 간의 차이로 표시
+$git stash show -p: 파일 내용의 차이까지 보이기
+$git stash show stash@{n}+ -p
+$git stash pop: 최근 또는 지정된 임시저장소 내용 가져온 후 반영 후 삭제
+$git stash apply: 최근 또는 지정된 임시저장소 내용을 가져와 반영, 작업디렉토리만 반영, stash 목록 그대로
+$git stash apply --index: 작업 디렉토리와 스테이징 영역도 반영
+$git stash drop: 최근 임시저장 용 삭제
+$git clean: untracked 파일 삭제
