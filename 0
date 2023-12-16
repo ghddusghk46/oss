@@ -1,0 +1,47 @@
+# 9-1 브랜치 리베이스 rebase
+3-way 상태에서 base의 이해
+'master' 브랜치 커밋 B에서 분기되는 'bugfix' 브랜치
+선형적 통합 rebase 이해
+브랜치 bugfix에서 base를 바꾸는 재배치하기 이전
+재배치 rebase 병합 수행, base를 수정 -> 다시 'fast-forward 병합' 수행: 직접 다시 해야 함
+rebase만 하면 'master'의 위치 그대로 유지, 마스터 브랜치의 위치를 변경하기 위해서는 ㅣfast-forward 병합 필요
+
+rebase의 충돌
+해결 절차: 파일 수정 -> 파일 추가 -> rebase 계속 수행, 마지막 메시지 수정
+
+3-way merge, rebase 비교
+merge: 여러 분기가 생긴 변경 내용의 이력이 모두 그대로 남아 있기 때문에 이력이 복잡해짐
+rebase: 히스토리가 선형으로 단순해지고 좀 더 깨끗한 이력을 남김 + 원래의 커밋 이력 변경됨
+
+fast-forwad merge, rebase 비교
+fast-forward merge: 조상에 위치한 브랜치에서 선행 브랜치의 마지막으로 이동하는 병합
+rebase: 두 갈래의 브랜치에서 기존의 베이스를 수정
+
+3-way 병합: $git checkout master, $git merge experiment
+
+$git rebase <newparent><branch>
+일반적 rebase 방법: topic 에서 main 을 rebase 한 이후, 다시 main으로ㅜ 이동 fast-forward 병합 수행
+다른 rebase 방법: 어느 브랜치든 main topic 순서로 재배치 방법
+
+# 9-2 커밋 이력 수정
+
+$git commit --amend: 설정된 편집기로 최근 커밋 메시지 수정
+$git commit --amend -m "an updated commit message": 최근 커밋 메시지 직접 입력해 수정
+
+rebase의 --interactive를 사용: 작업 공간이 꺠끗한 이후, 이전 여러 개의 커밋을 수정
+$git rebase -i HEAD ~3
+$git rebaase --interactive HEAD~3: 실제 head~2부터 수정 가능
+주요 rebase -i 대화형 명령어: p->pick, r-eword, s-quash, d->rop
+
+명령 squash 방법: 이후 것을 이전 커밋에 뭉치는 방법 + 새로운 커밋 메시지 입력하는 단계 존재
+
+최신 4개를 부분 메시지 수정
+$git rebase --interactive HEAD~4
+hint: Wating for your editor to close the file...
+
+$git rebase --interactive HEAD~2: 마지막 커밋 제거
+
+# 9-3 비쥬얼스튜디오코드에서 깃 활용
+확장 깃 설정
+$git restore h.txt -> 현재의 index 파일로 수정
+$git restore --staged h.txt -> 현재의 최근 커밋 파일로 수정, unstaged
