@@ -1,0 +1,25 @@
+# 4-1 파일 비교 diff
+
+$git diff: 스테이징 영역 기준에서 작업 디렉토리 비교
+%gir diff --staged [HEAD]: 깃 저장소 head 기준으로 스테이징 영역 비교
+$git diff HEAD: 깃 저장소 HEAD 기준으로 작업 디렉토리 비교
+$git diff HEAD~2: 깃 저장소 HEAD~2 기준으로 작업 디렉토리 비교
+
+두 버전과의 파일 비교 diff
+$git diff HEAD~2 HEAD~: ->
+$git diff HEAD~ HEAD: ->
+$git diff HEAD~2 HEAD: ->
+
+# 4-2 파일 삭제 rm과 복원 restore
+
+리눅스 명령 파일 삭제
+$rm [file]: 작업 디렉토리에서 file 삭제
+
+깃 명령 파일 삭제
+$git rm [file]: 작업 디렉토리와 스테이징 영역에서 모두 file 삭제
+$git rm --cached [file]: 스테이징 영역에서 file 삭제
+
+$git restore [file]: 작업 디렉토리의 파일을 스테이징 영역의 파일로 상태 복구
+$git resotre --staged [file]: 깃 저장소의 최신 커밋 상태의 파일을 스테이징 영역에 복구
+$git restroe --source=HEAD --staged --worktree f
+$git restore --source=HEAD f
